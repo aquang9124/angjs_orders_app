@@ -1,0 +1,53 @@
+<div ng-controller="ordersController">
+	<h4><u>Add a new order</u></h4>
+	<form>
+		<div class="form-group">
+			<label>Customer</label>
+			<select ng-model="newOrder.customer_name" class="form-control">
+				<option ng-repeat="customer in customers">{{ customer.name }}</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label>Quantity</label>
+			<select ng-model="newOrder.qty" class="form-control">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label>Product</label>
+			<select ng-model="newOrder.product" class="form-control">
+				<option value="Nike Shoes">Nike Shoes</option>
+				<option value="Black Belt">Black Belt</option>
+				<option value="Ice Cream">Ice Cream</option>
+				<option value="Apples">Apples</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<button class="btn btn-primary" ng-click="addOrder()">Add new order</button>
+		</div>
+	</form>
+	<hr>
+	<p>Search: <input type="text" ng-model="filter_orders" class="form-control" placeholder="Search for an order"></p>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Customer Name</th>
+				<th>Product</th>
+				<th>Quantity</th>
+				<th>Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="order in orders | filter: filter_orders">
+				<td ng-bind="order.customer_name"></td>
+				<td ng-bind="order.qty"></td>
+				<td ng-bind="order.product"></td>
+				<td ng-bind="order.created_at"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

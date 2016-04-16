@@ -1,0 +1,7 @@
+{
+  "name": "orders",
+  "description": "Angular orders assignment",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
